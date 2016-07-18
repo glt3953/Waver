@@ -27,19 +27,20 @@
     self.view.backgroundColor = [UIColor grayColor];
     
     WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
+    //定制
+    waverView.numberOfWaves = 4;
     
     __block AVAudioRecorder *weakRecorder = self.recorder;
     
-    waverView.waverLevelCallback = ^(WaverView *waver) {
-        
+    waverView.waverLevelCallback = ^(WaverView *waverView) {
         [weakRecorder updateMeters];
         
         //double pow (double base, double exponent);求base的exponent次方值
         CGFloat normalizedValue = pow(10, [weakRecorder averagePowerForChannel:0] / 40);
         
-        waver.level = normalizedValue;
-        
+        waverView.level = normalizedValue;
     };
+    
     [self.view addSubview:waverView];
     // Do any additional setup after loading the view, typically from a nib.
 }

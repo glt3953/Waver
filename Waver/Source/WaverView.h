@@ -11,7 +11,7 @@
 
 @interface WaverView : UIView
 
-@property (nonatomic, copy) void (^waverLevelCallback)(WaverView * waver);
+@property (nonatomic, copy) void (^waverLevelCallback)(WaverView *waverView);
 
 //
 
@@ -21,9 +21,9 @@
 
 @property (nonatomic) CGFloat level;
 
-@property (nonatomic) CGFloat mainWaveWidth;
+@property (nonatomic) CGFloat mainWaveWidth; //主波纹宽度
 
-@property (nonatomic) CGFloat decorativeWavesWidth;
+@property (nonatomic) CGFloat decorativeWavesWidth; //辅助波纹宽度
 
 @property (nonatomic) CGFloat idleAmplitude;
 

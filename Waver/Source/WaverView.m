@@ -70,27 +70,63 @@
     self.maxAmplitude = self.waveHeight - 4.0f;
 }
 
-- (void)setWaverLevelCallback:(void (^)(WaverView * waver))waverLevelCallback {
+- (void)setWaverLevelCallback:(void (^)(WaverView *waverView))waverLevelCallback {
     _waverLevelCallback = waverLevelCallback;
 
     [self.displayLink invalidate];
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(invokeWaveCallback)];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
+    //定制样式
     for (int i = 0; i < self.numberOfWaves; i++) {
         CAShapeLayer *waveline = [CAShapeLayer layer];
-        waveline.lineCap       = kCALineCapButt;
+        waveline.lineCap       = kCALineCapButt; //指定线的边缘
         waveline.lineJoin      = kCALineJoinRound;
-        waveline.strokeColor   = [[UIColor clearColor] CGColor];
-        waveline.fillColor     = [[UIColor clearColor] CGColor];
-        [waveline setLineWidth:(i == 0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
-        CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
-        CGFloat multiplier = MIN(1.0, (progress / 3.0f * 2.0f) + (1.0f / 3.0f));
-		UIColor *color = [self.waveColor colorWithAlphaComponent:(i == 0 ? 1.0 : 1.0 * multiplier * 0.4)];
-		waveline.strokeColor = color.CGColor;
+        switch (i) {
+            case 0:
+                [waveline setLineWidth:6];
+                waveline.strokeColor = [[UIColor blueColor] CGColor]; //指定path的渲染颜色
+                break;
+            case 1:
+                [waveline setLineWidth:5];
+                waveline.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.4].CGColor;
+                break;
+            case 2:
+                [waveline setLineWidth:4];
+                waveline.strokeColor = [[UIColor blueColor] CGColor];
+                break;
+            case 3:
+                [waveline setLineWidth:3];
+                waveline.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.4].CGColor;
+                break;
+            default:
+                break;
+        }
+//        waveline.strokeColor   = [[UIColor clearColor] CGColor];
+//        waveline.fillColor     = [[UIColor clearColor] CGColor];
+//        [waveline setLineWidth:(i == 0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
+//        CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
+//        CGFloat multiplier = MIN(1.0, (progress / 3.0f * 2.0f) + (1.0f / 3.0f));
+//        UIColor *color = [self.waveColor colorWithAlphaComponent:(i == 0 ? 1.0 : 1.0 * multiplier * 0.4)];
+//        waveline.strokeColor = color.CGColor;
         [self.layer addSublayer:waveline];
         [self.waves addObject:waveline];
     }
+    
+//    for (int i = 0; i < self.numberOfWaves; i++) {
+//        CAShapeLayer *waveline = [CAShapeLayer layer];
+//        waveline.lineCap       = kCALineCapButt;
+//        waveline.lineJoin      = kCALineJoinRound;
+//        waveline.strokeColor   = [[UIColor clearColor] CGColor];
+//        waveline.fillColor     = [[UIColor clearColor] CGColor];
+//        [waveline setLineWidth:(i == 0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
+//        CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
+//        CGFloat multiplier = MIN(1.0, (progress / 3.0f * 2.0f) + (1.0f / 3.0f));
+//		UIColor *color = [self.waveColor colorWithAlphaComponent:(i == 0 ? 1.0 : 1.0 * multiplier * 0.4)];
+//		waveline.strokeColor = color.CGColor;
+//        [self.layer addSublayer:waveline];
+//        [self.waves addObject:waveline];
+//    }
 }
 
 - (void)invokeWaveCallback
