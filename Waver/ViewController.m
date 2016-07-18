@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Waver.h"
+#import "WaverView.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface ViewController ()
@@ -26,32 +26,32 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
+    WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
     
     __block AVAudioRecorder *weakRecorder = self.recorder;
     
-    waver.waverLevelCallback = ^(Waver * waver) {
+    waverView.waverLevelCallback = ^(WaverView *waver) {
         
         [weakRecorder updateMeters];
         
-        CGFloat normalizedValue = pow (10, [weakRecorder averagePowerForChannel:0] / 40);
+        //double pow (double base, double exponent);求base的exponent次方值
+        CGFloat normalizedValue = pow(10, [weakRecorder averagePowerForChannel:0] / 40);
         
         waver.level = normalizedValue;
         
     };
-    [self.view addSubview:waver];
+    [self.view addSubview:waverView];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 
--(void)setupRecorder
-{
+- (void)setupRecorder  {
     NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
     
-    NSDictionary *settings = @{AVSampleRateKey:          [NSNumber numberWithFloat: 44100.0],
-                               AVFormatIDKey:            [NSNumber numberWithInt: kAudioFormatAppleLossless],
-                               AVNumberOfChannelsKey:    [NSNumber numberWithInt: 2],
-                               AVEncoderAudioQualityKey: [NSNumber numberWithInt: AVAudioQualityMin]};
+    NSDictionary *settings = @{AVSampleRateKey:          [NSNumber numberWithFloat:44100.0],
+                               AVFormatIDKey:            [NSNumber numberWithInt:kAudioFormatAppleLossless],
+                               AVNumberOfChannelsKey:    [NSNumber numberWithInt:2],
+                               AVEncoderAudioQualityKey: [NSNumber numberWithInt:AVAudioQualityMin]};
     
     NSError *error;
     self.recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
@@ -70,7 +70,6 @@
     [self.recorder prepareToRecord];
     [self.recorder setMeteringEnabled:YES];
     [self.recorder record];
-
 }
 
 - (void)didReceiveMemoryWarning {

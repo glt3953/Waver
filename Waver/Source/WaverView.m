@@ -1,14 +1,14 @@
 //
-//  Waver.m
-//  Waver
+//  WaverView.m
+//  WaverView
 //
 //  Created by kevinzhow on 14/12/14.
 //  Copyright (c) 2014年 Catch Inc. All rights reserved.
 //
 
-#import "Waver.h"
+#import "WaverView.h"
 
-@interface Waver ()
+@interface WaverView ()
 
 @property (nonatomic) CGFloat phase;
 @property (nonatomic) CGFloat amplitude; //振幅
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation Waver
+@implementation WaverView
 
 
 - (id)init
@@ -70,21 +70,20 @@
     self.maxAmplitude = self.waveHeight - 4.0f;
 }
 
-- (void)setWaverLevelCallback:(void (^)(Waver * waver))waverLevelCallback {
+- (void)setWaverLevelCallback:(void (^)(WaverView * waver))waverLevelCallback {
     _waverLevelCallback = waverLevelCallback;
 
     [self.displayLink invalidate];
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(invokeWaveCallback)];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
-    for(int i=0; i < self.numberOfWaves; i++)
-    {
+    for (int i = 0; i < self.numberOfWaves; i++) {
         CAShapeLayer *waveline = [CAShapeLayer layer];
         waveline.lineCap       = kCALineCapButt;
         waveline.lineJoin      = kCALineJoinRound;
         waveline.strokeColor   = [[UIColor clearColor] CGColor];
         waveline.fillColor     = [[UIColor clearColor] CGColor];
-        [waveline setLineWidth:(i==0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
+        [waveline setLineWidth:(i == 0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
         CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
         CGFloat multiplier = MIN(1.0, (progress / 3.0f * 2.0f) + (1.0f / 3.0f));
 		UIColor *color = [self.waveColor colorWithAlphaComponent:(i == 0 ? 1.0 : 1.0 * multiplier * 0.4)];
@@ -92,7 +91,6 @@
         [self.layer addSublayer:waveline];
         [self.waves addObject:waveline];
     }
-    
 }
 
 - (void)invokeWaveCallback
@@ -106,7 +104,7 @@
     
     self.phase += self.phaseShift; // Move the wave
     
-    self.amplitude = fmax( level, self.idleAmplitude);
+    self.amplitude = fmax(level, self.idleAmplitude);
     [self updateMeters];
 }
 
@@ -120,7 +118,7 @@
 	
     UIGraphicsBeginImageContext(self.frame.size);
     
-    for(int i=0; i < self.numberOfWaves; i++) {
+    for(int i = 0; i < self.numberOfWaves; i++) {
 
         UIBezierPath *wavelinePath = [UIBezierPath bezierPath];
 
@@ -129,18 +127,18 @@
         CGFloat normedAmplitude = (1.5f * progress - 0.5f) * self.amplitude;
 
         
-        for(CGFloat x = 0; x<self.waveWidth + self.density; x += self.density) {
+        for(CGFloat x = 0; x < self.waveWidth + self.density; x += self.density) {
             
             //Thanks to https://github.com/stefanceriu/SCSiriWaveformView
             // We use a parable to scale the sinus wave, that has its peak in the middle of the view.
+            //缩放
             CGFloat scaling = -pow(x / self.waveMid  - 1, 2) + 1; // make center bigger
             
             CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + (self.waveHeight * 0.5);
             
-            if (x==0) {
+            if (x == 0) {
                 [wavelinePath moveToPoint:CGPointMake(x, y)];
-            }
-            else {
+            } else {
                 [wavelinePath addLineToPoint:CGPointMake(x, y)];
             }
         }

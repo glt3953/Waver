@@ -1,6 +1,6 @@
 //
-//  Waver.h
-//  Waver
+//  WaverView.h
+//  WaverView
 //
 //  Created by kevinzhow on 14/12/14.
 //  Copyright (c) 2014年 Catch Inc. All rights reserved.
@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface Waver : UIView
+@interface WaverView : UIView
 
-@property (nonatomic, copy) void (^waverLevelCallback)(Waver * waver);
+@property (nonatomic, copy) void (^waverLevelCallback)(WaverView * waver);
 
 //
 
@@ -29,7 +29,7 @@
 
 @property (nonatomic) CGFloat frequency;
 
-@property (nonatomic, readonly) CGFloat amplitude;
+@property (nonatomic, readonly) CGFloat amplitude; //振幅
 
 @property (nonatomic) CGFloat density; //密度
 @property (nonatomic) CGFloat phaseShift; //相移
