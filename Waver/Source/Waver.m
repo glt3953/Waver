@@ -11,8 +11,8 @@
 @interface Waver ()
 
 @property (nonatomic) CGFloat phase;
-@property (nonatomic) CGFloat amplitude;
-@property (nonatomic) NSMutableArray * waves;
+@property (nonatomic) CGFloat amplitude; //振幅
+@property (nonatomic) NSMutableArray * waves; //波纹
 @property (nonatomic) CGFloat waveHeight;
 @property (nonatomic) CGFloat waveWidth;
 @property (nonatomic) CGFloat waveMid;

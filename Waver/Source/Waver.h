@@ -31,9 +31,8 @@
 
 @property (nonatomic, readonly) CGFloat amplitude;
 
-@property (nonatomic) CGFloat density;
-
-@property (nonatomic) CGFloat phaseShift;
+@property (nonatomic) CGFloat density; //密度
+@property (nonatomic) CGFloat phaseShift; //相移
 
 //
 
