@@ -15,6 +15,13 @@
 		0AE3A3291A3CCEA100FD562D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3A3271A3CCEA100FD562D /* LaunchScreen.xib */; };
 		0AE3A3351A3CCEA100FD562D /* WaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3A3341A3CCEA100FD562D /* WaverTests.m */; };
 		0AE3A3401A3CEC6700FD562D /* WaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3A33F1A3CEC6700FD562D /* WaverView.m */; };
+		5A42CA6B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA5C1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m */; };
+		5A42CA6C1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA5E1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m */; };
+		5A42CA6D1D3DCA7900ED7411 /* UIColor+NingXia.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA601D3DCA7900ED7411 /* UIColor+NingXia.m */; };
+		5A42CA6E1D3DCA7900ED7411 /* UIFont+Room107.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA621D3DCA7900ED7411 /* UIFont+Room107.m */; };
+		5A42CA6F1D3DCA7900ED7411 /* UIImage+Room107.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA641D3DCA7900ED7411 /* UIImage+Room107.m */; };
+		5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */; };
+		5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +50,20 @@
 		0AE3A3341A3CCEA100FD562D /* WaverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaverTests.m; sourceTree = "<group>"; };
 		0AE3A33E1A3CEC6700FD562D /* WaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaverView.h; path = Source/WaverView.h; sourceTree = "<group>"; };
 		0AE3A33F1A3CEC6700FD562D /* WaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaverView.m; path = Source/WaverView.m; sourceTree = "<group>"; };
+		5A42CA5B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		5A42CA5C1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		5A42CA5D1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton + EnlargeTouchArea.h"; sourceTree = "<group>"; };
+		5A42CA5E1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton + EnlargeTouchArea.m"; sourceTree = "<group>"; };
+		5A42CA5F1D3DCA7900ED7411 /* UIColor+NingXia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NingXia.h"; sourceTree = "<group>"; };
+		5A42CA601D3DCA7900ED7411 /* UIColor+NingXia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NingXia.m"; sourceTree = "<group>"; };
+		5A42CA611D3DCA7900ED7411 /* UIFont+Room107.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Room107.h"; sourceTree = "<group>"; };
+		5A42CA621D3DCA7900ED7411 /* UIFont+Room107.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Room107.m"; sourceTree = "<group>"; };
+		5A42CA631D3DCA7900ED7411 /* UIImage+Room107.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Room107.h"; sourceTree = "<group>"; };
+		5A42CA641D3DCA7900ED7411 /* UIImage+Room107.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Room107.m"; sourceTree = "<group>"; };
+		5A42CA651D3DCA7900ED7411 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		5A42CA671D3DCA7900ED7411 /* UITabBar+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
+		5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +105,7 @@
 		0AE3A3171A3CCEA100FD562D /* Waver */ = {
 			isa = PBXGroup;
 			children = (
+				5A42CA5A1D3DCA7900ED7411 /* CategoryUI */,
 				0AE3A3411A3CEC6B00FD562D /* Source */,
 				0AE3A31C1A3CCEA100FD562D /* AppDelegate.h */,
 				0AE3A31D1A3CCEA100FD562D /* AppDelegate.m */,
@@ -130,6 +152,27 @@
 				0AE3A33F1A3CEC6700FD562D /* WaverView.m */,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		5A42CA5A1D3DCA7900ED7411 /* CategoryUI */ = {
+			isa = PBXGroup;
+			children = (
+				5A42CA5B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.h */,
+				5A42CA5C1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m */,
+				5A42CA5D1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.h */,
+				5A42CA5E1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m */,
+				5A42CA5F1D3DCA7900ED7411 /* UIColor+NingXia.h */,
+				5A42CA601D3DCA7900ED7411 /* UIColor+NingXia.m */,
+				5A42CA611D3DCA7900ED7411 /* UIFont+Room107.h */,
+				5A42CA621D3DCA7900ED7411 /* UIFont+Room107.m */,
+				5A42CA631D3DCA7900ED7411 /* UIImage+Room107.h */,
+				5A42CA641D3DCA7900ED7411 /* UIImage+Room107.m */,
+				5A42CA651D3DCA7900ED7411 /* UINavigationBar+Awesome.h */,
+				5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */,
+				5A42CA671D3DCA7900ED7411 /* UITabBar+Badge.h */,
+				5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */,
+			);
+			path = CategoryUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,10 +275,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A42CA6E1D3DCA7900ED7411 /* UIFont+Room107.m in Sources */,
 				0AE3A3211A3CCEA100FD562D /* ViewController.m in Sources */,
+				5A42CA6C1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m in Sources */,
+				5A42CA6D1D3DCA7900ED7411 /* UIColor+NingXia.m in Sources */,
+				5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */,
 				0AE3A31E1A3CCEA100FD562D /* AppDelegate.m in Sources */,
 				0AE3A31B1A3CCEA100FD562D /* main.m in Sources */,
 				0AE3A3401A3CEC6700FD562D /* WaverView.m in Sources */,
+				5A42CA6F1D3DCA7900ED7411 /* UIImage+Room107.m in Sources */,
+				5A42CA6B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m in Sources */,
+				5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

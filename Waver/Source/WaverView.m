@@ -7,6 +7,7 @@
 //
 
 #import "WaverView.h"
+#import "UIColor+NingXia.h"
 
 @interface WaverView ()
 
@@ -84,20 +85,20 @@
         waveline.lineJoin      = kCALineJoinRound;
         switch (i) {
             case 0:
-                [waveline setLineWidth:6];
-                waveline.strokeColor = [[UIColor blueColor] CGColor]; //指定path的渲染颜色
+                [waveline setLineWidth:3];
+                waveline.strokeColor = [[UIColor colorFromHexString:@"#fcc080"] CGColor]; //指定path的渲染颜色
                 break;
             case 1:
-                [waveline setLineWidth:5];
-                waveline.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.4].CGColor;
+                [waveline setLineWidth:2.5];
+                waveline.strokeColor = [[UIColor colorFromHexString:@"#ffb8b6" alpha:0.4] CGColor];
                 break;
             case 2:
-                [waveline setLineWidth:4];
-                waveline.strokeColor = [[UIColor blueColor] CGColor];
+                [waveline setLineWidth:2];
+                waveline.strokeColor = [[UIColor colorFromHexString:@"#fcc080"] CGColor];
                 break;
             case 3:
-                [waveline setLineWidth:3];
-                waveline.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.4].CGColor;
+                [waveline setLineWidth:1.5];
+                waveline.strokeColor = [[UIColor colorFromHexString:@"#ffb8b6" alpha:0.4] CGColor];
                 break;
             default:
                 break;
