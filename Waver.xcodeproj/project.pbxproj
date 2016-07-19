@@ -22,6 +22,7 @@
 		5A42CA6F1D3DCA7900ED7411 /* UIImage+Room107.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA641D3DCA7900ED7411 /* UIImage+Room107.m */; };
 		5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */; };
 		5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */; };
+		5A61ADAE1D3E07DE004B3E8A /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		5A42CA671D3DCA7900ED7411 /* UITabBar+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
 		5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
+		5A61ADAC1D3E07DE004B3E8A /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
+		5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 		0AE3A3171A3CCEA100FD562D /* Waver */ = {
 			isa = PBXGroup;
 			children = (
+				5A61ADAB1D3E07DE004B3E8A /* CircleProgressView */,
 				5A42CA5A1D3DCA7900ED7411 /* CategoryUI */,
 				0AE3A3411A3CEC6B00FD562D /* Source */,
 				0AE3A31C1A3CCEA100FD562D /* AppDelegate.h */,
@@ -173,6 +177,15 @@
 				5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */,
 			);
 			path = CategoryUI;
+			sourceTree = "<group>";
+		};
+		5A61ADAB1D3E07DE004B3E8A /* CircleProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				5A61ADAC1D3E07DE004B3E8A /* CircleProgressView.h */,
+				5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */,
+			);
+			path = CircleProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +291,7 @@
 				5A42CA6E1D3DCA7900ED7411 /* UIFont+Room107.m in Sources */,
 				0AE3A3211A3CCEA100FD562D /* ViewController.m in Sources */,
 				5A42CA6C1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m in Sources */,
+				5A61ADAE1D3E07DE004B3E8A /* CircleProgressView.m in Sources */,
 				5A42CA6D1D3DCA7900ED7411 /* UIColor+NingXia.m in Sources */,
 				5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */,
 				0AE3A31E1A3CCEA100FD562D /* AppDelegate.m in Sources */,
