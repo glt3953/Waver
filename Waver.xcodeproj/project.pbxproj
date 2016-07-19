@@ -14,7 +14,6 @@
 		0AE3A3261A3CCEA100FD562D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3A3251A3CCEA100FD562D /* Images.xcassets */; };
 		0AE3A3291A3CCEA100FD562D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3A3271A3CCEA100FD562D /* LaunchScreen.xib */; };
 		0AE3A3351A3CCEA100FD562D /* WaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3A3341A3CCEA100FD562D /* WaverTests.m */; };
-		0AE3A3401A3CEC6700FD562D /* WaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3A33F1A3CEC6700FD562D /* WaverView.m */; };
 		5A42CA6B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA5C1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m */; };
 		5A42CA6C1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA5E1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.m */; };
 		5A42CA6D1D3DCA7900ED7411 /* UIColor+NingXia.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA601D3DCA7900ED7411 /* UIColor+NingXia.m */; };
@@ -23,6 +22,7 @@
 		5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */; };
 		5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */; };
 		5A61ADAE1D3E07DE004B3E8A /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */; };
+		5A61ADB21D3E0BC4004B3E8A /* WaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADB11D3E0BC4004B3E8A /* WaverView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,6 @@
 		0AE3A32E1A3CCEA100FD562D /* WaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE3A3331A3CCEA100FD562D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE3A3341A3CCEA100FD562D /* WaverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaverTests.m; sourceTree = "<group>"; };
-		0AE3A33E1A3CEC6700FD562D /* WaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaverView.h; path = Source/WaverView.h; sourceTree = "<group>"; };
-		0AE3A33F1A3CEC6700FD562D /* WaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaverView.m; path = Source/WaverView.m; sourceTree = "<group>"; };
 		5A42CA5B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		5A42CA5C1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		5A42CA5D1D3DCA7900ED7411 /* UIButton + EnlargeTouchArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton + EnlargeTouchArea.h"; sourceTree = "<group>"; };
@@ -67,6 +65,8 @@
 		5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 		5A61ADAC1D3E07DE004B3E8A /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
+		5A61ADB01D3E0BC4004B3E8A /* WaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaverView.h; sourceTree = "<group>"; };
+		5A61ADB11D3E0BC4004B3E8A /* WaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaverView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +108,9 @@
 		0AE3A3171A3CCEA100FD562D /* Waver */ = {
 			isa = PBXGroup;
 			children = (
+				5A61ADAF1D3E0BC4004B3E8A /* WaverView */,
 				5A61ADAB1D3E07DE004B3E8A /* CircleProgressView */,
 				5A42CA5A1D3DCA7900ED7411 /* CategoryUI */,
-				0AE3A3411A3CEC6B00FD562D /* Source */,
 				0AE3A31C1A3CCEA100FD562D /* AppDelegate.h */,
 				0AE3A31D1A3CCEA100FD562D /* AppDelegate.m */,
 				0AE3A31F1A3CCEA100FD562D /* ViewController.h */,
@@ -149,15 +149,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0AE3A3411A3CEC6B00FD562D /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				0AE3A33E1A3CEC6700FD562D /* WaverView.h */,
-				0AE3A33F1A3CEC6700FD562D /* WaverView.m */,
-			);
-			name = Source;
-			sourceTree = "<group>";
-		};
 		5A42CA5A1D3DCA7900ED7411 /* CategoryUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +177,15 @@
 				5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */,
 			);
 			path = CircleProgressView;
+			sourceTree = "<group>";
+		};
+		5A61ADAF1D3E0BC4004B3E8A /* WaverView */ = {
+			isa = PBXGroup;
+			children = (
+				5A61ADB01D3E0BC4004B3E8A /* WaverView.h */,
+				5A61ADB11D3E0BC4004B3E8A /* WaverView.m */,
+			);
+			path = WaverView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,9 +296,9 @@
 				5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */,
 				0AE3A31E1A3CCEA100FD562D /* AppDelegate.m in Sources */,
 				0AE3A31B1A3CCEA100FD562D /* main.m in Sources */,
-				0AE3A3401A3CEC6700FD562D /* WaverView.m in Sources */,
 				5A42CA6F1D3DCA7900ED7411 /* UIImage+Room107.m in Sources */,
 				5A42CA6B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m in Sources */,
+				5A61ADB21D3E0BC4004B3E8A /* WaverView.m in Sources */,
 				5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

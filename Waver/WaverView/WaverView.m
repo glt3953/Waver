@@ -83,6 +83,7 @@
         CAShapeLayer *waveline = [CAShapeLayer layer];
         waveline.lineCap       = kCALineCapButt; //指定线的边缘
         waveline.lineJoin      = kCALineJoinRound;
+        waveline.fillColor     = [[UIColor clearColor] CGColor]; //波纹的填充色
         switch (i) {
             case 0:
                 [waveline setLineWidth:3];
@@ -104,7 +105,6 @@
                 break;
         }
 //        waveline.strokeColor   = [[UIColor clearColor] CGColor];
-//        waveline.fillColor     = [[UIColor clearColor] CGColor];
 //        [waveline setLineWidth:(i == 0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
 //        CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
 //        CGFloat multiplier = MIN(1.0, (progress / 3.0f * 2.0f) + (1.0f / 3.0f));
