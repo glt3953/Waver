@@ -264,6 +264,7 @@
 				TargetAttributes = {
 					0AE3A3141A3CCEA100FD562D = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CCQP63X7K4;
 					};
 					0AE3A32D1A3CCEA100FD562D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -497,9 +498,12 @@
 			baseConfigurationReference = AB421369EC1BE81E349FFB7F /* Pods-Waver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = Waver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.WaverDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -509,9 +513,12 @@
 			baseConfigurationReference = CB975D98B892BE46CFD5C22F /* Pods-Waver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = Waver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.WaverDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
