@@ -10,13 +10,16 @@
 #import "WaverView.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CircleProgressView.h"
+#import "KefuMsgClient.h"
 
 static float percent = 0;
 
-@interface ViewController ()
+@interface ViewController () //<DDASRKefuDegegate>
 
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) CircleProgressView *circleProgressView;
+@property (nonatomic, strong) KefuMsgClient *kefuClient;
+@property (nonatomic, copy) NSDictionary *userInfoDic;
 
 @end
 
@@ -29,6 +32,9 @@ static float percent = 0;
     [self setupRecorder];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    _kefuClient = [[KefuMsgClient alloc] init];
+//    _kefuClient.delegate = self;
+    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"uid":@564069099110401}, @"pid":@10001};
     
     WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
     //定制
@@ -49,6 +55,8 @@ static float percent = 0;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [_kefuClient startRecWithPid:_userInfoDic];
     
     do {
         [_circleProgressView setPercent:percent animated:YES];
