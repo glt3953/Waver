@@ -1,0 +1,24 @@
+PODS:
+  - ISCProject (0.2.1):
+    - TTTAttributedLabel (~> 1.13.4)
+  - TTTAttributedLabel (1.13.4)
+
+DEPENDENCIES:
+  - ISCProject (from `git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git`, tag
+    `0.2.1`)
+
+EXTERNAL SOURCES:
+  ISCProject:
+    :git: git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git
+    :tag: 0.2.1
+
+CHECKOUT OPTIONS:
+  ISCProject:
+    :git: git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git
+    :tag: 0.2.1
+
+SPEC CHECKSUMS:
+  ISCProject: 45ff953aabefdf422374f48b37106a8073da44e1
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+
+COCOAPODS: 0.39.0
