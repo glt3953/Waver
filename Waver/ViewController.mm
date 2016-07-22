@@ -42,7 +42,7 @@ static float percent = 0;
     _kefuClient = [[KefuMsgClient alloc] init];
     _kefuClient.delegate = self;
     _mp3Player = [[KMMp3Player alloc] init];
-    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"uid":@564069099110401}, @"pid":@10001};
+    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"traceId":@"1c9a629d-d982-4139-8e43-24f143931d20", @"uid":@564069099110401}, @"pid":@10001};
     _recountTimer = [[KMRecorderTimer alloc] init];
     _recountTimer.delegate = self;
     
@@ -149,7 +149,24 @@ static float percent = 0;
     [self.recorder record];
 }
 
-#pragma -mark KMRecorderTimerDelegate
+#pragma mark -  DDASRKefuDegegate
+- (void)GetMessgeFromKefu:(NSDictionary *)dic withStatus:(int)status {
+    
+}
+
+- (void)getFileName:(NSString *)str AndPath:(NSString *)path AndERRORNumber:(NSString *)number AndStatus:(NSInteger)astatus {
+    NSLog(@"%@---------fafa------------%zd", number, astatus);
+}
+
+-(void)getErrorMsgWhenFinishTranslate:(NSString *)str withErrornum:(NSString *)number AndStatus:(NSInteger)astatus {
+    
+}
+
+- (void)getFinishMsgWhenFinishTranslate:(NSString *)str withErrornum:(NSString *)number AndStatus:(NSInteger)astatus {
+
+}
+
+#pragma mark - KMRecorderTimerDelegate
 - (void)TimerActionValueChange:(int)time {
     _timeValue = time / 10;
     _touchTime = time;
@@ -157,8 +174,14 @@ static float percent = 0;
         _timeValue = 1;
     }
     NSLog(@"------------%zd-------", _timeValue);
-    if (_timeValue > 9) {
+    if (_timeValue > 2) {
         [_kefuClient finishSpeak];
+        
+        NSString * kefuClientPath = [[KMFileManager shareManager]createFilePath];
+        
+//        NSString * keyPath = [kefuClientPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%@.mp3", data[@"id"]]]];
+//        [_mp3Player PlayWithContentFile:keyPath];
+        
         [_mp3Player stopPlaying];
         [_recountTimer stopTimer];
         

@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ISCProject:
-    :commit: a3181b8e65d93314a75b1f85b937e43d3f93a2bc
+    :commit: 84ff7929dab57d9b7fd1cfcff4ee7f37fad88eb3
     :git: git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git
 
 SPEC CHECKSUMS:
