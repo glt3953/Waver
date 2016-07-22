@@ -24,6 +24,7 @@
 		5A61ADAE1D3E07DE004B3E8A /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */; };
 		5A61ADB21D3E0BC4004B3E8A /* WaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADB11D3E0BC4004B3E8A /* WaverView.m */; };
 		5ED639734285E460C77ACED0 /* libPods-Waver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3BE0EA15A8E42A83F548EB /* libPods-Waver.a */; };
+		F30F0D981D423102005DC4E9 /* DDASRClientResources in Resources */ = {isa = PBXBuildFile; fileRef = F30F0D971D423102005DC4E9 /* DDASRClientResources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		AB421369EC1BE81E349FFB7F /* Pods-Waver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Waver/Pods-Waver.debug.xcconfig"; sourceTree = "<group>"; };
 		CB975D98B892BE46CFD5C22F /* Pods-Waver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waver.release.xcconfig"; path = "Pods/Target Support Files/Pods-Waver/Pods-Waver.release.xcconfig"; sourceTree = "<group>"; };
 		EB3BE0EA15A8E42A83F548EB /* libPods-Waver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Waver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30F0D971D423102005DC4E9 /* DDASRClientResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DDASRClientResources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		0AE3A3171A3CCEA100FD562D /* Waver */ = {
 			isa = PBXGroup;
 			children = (
+				F30F0D971D423102005DC4E9 /* DDASRClientResources */,
 				5A61ADAF1D3E0BC4004B3E8A /* WaverView */,
 				5A61ADAB1D3E07DE004B3E8A /* CircleProgressView */,
 				5A42CA5A1D3DCA7900ED7411 /* CategoryUI */,
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30F0D981D423102005DC4E9 /* DDASRClientResources in Resources */,
 				0AE3A3241A3CCEA100FD562D /* Main.storyboard in Resources */,
 				0AE3A3291A3CCEA100FD562D /* LaunchScreen.xib in Resources */,
 				0AE3A3261A3CCEA100FD562D /* Images.xcassets in Resources */,

@@ -155,6 +155,7 @@ static float percent = 0;
 }
 
 - (void)getFileName:(NSString *)str AndPath:(NSString *)path AndERRORNumber:(NSString *)number AndStatus:(NSInteger)astatus {
+    [_mp3Player PlayWithContentFile:path];
     NSLog(@"%@---------fafa------------%zd", number, astatus);
 }
 
