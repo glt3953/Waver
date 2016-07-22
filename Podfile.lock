@@ -4,18 +4,18 @@ PODS:
   - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
-  - ISCProject (from `git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git`, tag
-    `0.2.1`)
+  - ISCProject (from `git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git`, branch
+    `develop`)
 
 EXTERNAL SOURCES:
   ISCProject:
+    :branch: develop
     :git: git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git
-    :tag: 0.2.1
 
 CHECKOUT OPTIONS:
   ISCProject:
+    :commit: a3181b8e65d93314a75b1f85b937e43d3f93a2bc
     :git: git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git
-    :tag: 0.2.1
 
 SPEC CHECKSUMS:
   ISCProject: 45ff953aabefdf422374f48b37106a8073da44e1
