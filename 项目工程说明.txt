@@ -1,0 +1,68 @@
+1.Release是用的DIDIVoiceRecognitionClient_Publish.h；
+
+2.ISCForOneProject项目git地址：https://git.xiaojukeji.com/zhangkaiming/ISCForOneProject，是集成中间层和ASR SDK的pod工程，不需要编译，是通过pod导入工程；
+
+3.获取语音音量的接口：[[DIDIVoiceRecognitionClient sharedInstance] getCurrentDBLevelMeter]；
+
+4、DiSpecialDriver项目的服务中心H5为KFOnlineWebViewController，在registBridge方法中调用录音模块，唤起KefuMsgClient类的相关接口，即@“startRecord"（[kefuClient startRecWithPid:data]）与@"endRecord"（[kefuClient finishSpeak]）；
+
+5.[kefuClient startRecWithPid:data]中data的数据结构为
+{
+    chatInfo =     {
+        businessType = 1;
+        cell = 18800000004;
+        cityId = 1;
+        message = "";
+        mid = "6220bd3e-f003-4a6b-8f57-64ac0b0afcdc";
+        msgType = 0;
+        orderId = 0;
+        roleType = 3;
+        skillType = common;
+        source = "-1";
+        traceId = "1c9a629d-d982-4139-8e43-24f143931d20";
+        uid = 564069099110401;
+    };
+    pid = 10001;
+	 newVoice = 0; //1为新版0为旧版
+}
+凯铭，我看之前司机端把小流量的判断扔到KefuMsgClient里判断了。
+
+6.查看.a静态库支持的CPU型号命令：lipo -info XXX.a
+合并模拟器与真机的.a库，命令：
+lipo -create XXX/iphoneos/XXX.a XXX/iphonesimulator/XXX.a  -output XXX/iOS/XXX.a
+其中XXX/iphoneos/XXX.a为真机库，XXX/iphonesimulator/XXX.a为模拟器库，-output XXX/iOS/XXX.a为两个库合并后存放的路径
+
+7.在Demo项目里增加Podfile文件，集成ISCProject库，内容如下：
+使用仓库的某个tag:
+target 'Waver' do
+    platform:ios, '7.0'
+    pod 'ISCProject', :git => "git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git", :tag => "0.2.1"
+end
+使用仓库的其他分支:
+target 'Waver' do
+    platform:ios, '7.0'
+    pod 'ISCProject', :git => "git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git", :branch => 'develop'
+end
+
+8.集成ISCProject库后，编译报错："vtable for __cxxabiv1::__class_type_info", referenced from:
+      typeinfo for CAXException in libDDVoiceRecognitionClient.a(DIDIVRDBLevelMeterListener.o)
+ld: symbol(s) not found for architecture i386
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+解决方案：
+遇到这样的问题主要是第三方库导入的配置不对，静态库中采用ObjectC++实现，因此需要您保证您工程中至少有一个.mm后缀的源文件(您可以将任意一个.m后缀的文件改名为.mm)，或者在工程属性中指定编译方式，即将Xcode的Project -> Edit Active Target -> Build -> GCC4.2 - Language -> Compile Sources As设置为"Objective-C++"
+
+9.新版发布流程：编译好新的识别库，增加新UI后把相关头文件和.a库替换到ISCForOneProject工程，push到代码库里，司机端pod update后就可以调；
+
+10.0719在线客服需求疑问
+（1）结束录音的交互方式？
+（2）录音提示音类型：
+开始 iOS:record_start.caf
+结束 iOS:record_end.caf
+出错 iOS:record_fail.caf
+附件是现有的声音文件
+（3）点按录音图标到波纹的交互方式？明确H5与Native各自要实现的部分。
+
+11.录音提示音
+提示音目录：/Users/guoliting/didichuxing/asr-ios-sdk/ios-sdk/DDASRClientSample/libDDASRClient/DDASRClientResources/Tone
+开启提示音：[[DIDIVoiceRecognitionClient sharedInstance] setPlayTone:EVoiceRecognitionPlayTonesRecStart isPlay:YES];
+Demo使用时需要将DDASRClientResources文件夹拷贝至项目所在目录，添加至工程时打开Options只勾选Create folder reference，这样Demo运行时的App包里就会包含DDASRClientResources文件夹；
