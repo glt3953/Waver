@@ -22,7 +22,6 @@
 		5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA661D3DCA7900ED7411 /* UINavigationBar+Awesome.m */; };
 		5A42CA711D3DCA7900ED7411 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */; };
 		5A61ADAE1D3E07DE004B3E8A /* CircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */; };
-		5A61ADB21D3E0BC4004B3E8A /* WaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61ADB11D3E0BC4004B3E8A /* WaverView.m */; };
 		5ED639734285E460C77ACED0 /* libPods-Waver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3BE0EA15A8E42A83F548EB /* libPods-Waver.a */; };
 		F30F0D981D423102005DC4E9 /* DDASRClientResources in Resources */ = {isa = PBXBuildFile; fileRef = F30F0D971D423102005DC4E9 /* DDASRClientResources */; };
 /* End PBXBuildFile section */
@@ -67,8 +66,6 @@
 		5A42CA681D3DCA7900ED7411 /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 		5A61ADAC1D3E07DE004B3E8A /* CircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleProgressView.h; sourceTree = "<group>"; };
 		5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleProgressView.m; sourceTree = "<group>"; };
-		5A61ADB01D3E0BC4004B3E8A /* WaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaverView.h; sourceTree = "<group>"; };
-		5A61ADB11D3E0BC4004B3E8A /* WaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaverView.m; sourceTree = "<group>"; };
 		AB421369EC1BE81E349FFB7F /* Pods-Waver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Waver/Pods-Waver.debug.xcconfig"; sourceTree = "<group>"; };
 		CB975D98B892BE46CFD5C22F /* Pods-Waver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Waver.release.xcconfig"; path = "Pods/Target Support Files/Pods-Waver/Pods-Waver.release.xcconfig"; sourceTree = "<group>"; };
 		EB3BE0EA15A8E42A83F548EB /* libPods-Waver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Waver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				F30F0D971D423102005DC4E9 /* DDASRClientResources */,
-				5A61ADAF1D3E0BC4004B3E8A /* WaverView */,
 				5A61ADAB1D3E07DE004B3E8A /* CircleProgressView */,
 				5A42CA5A1D3DCA7900ED7411 /* CategoryUI */,
 				0AE3A31C1A3CCEA100FD562D /* AppDelegate.h */,
@@ -187,15 +183,6 @@
 				5A61ADAD1D3E07DE004B3E8A /* CircleProgressView.m */,
 			);
 			path = CircleProgressView;
-			sourceTree = "<group>";
-		};
-		5A61ADAF1D3E0BC4004B3E8A /* WaverView */ = {
-			isa = PBXGroup;
-			children = (
-				5A61ADB01D3E0BC4004B3E8A /* WaverView.h */,
-				5A61ADB11D3E0BC4004B3E8A /* WaverView.m */,
-			);
-			path = WaverView;
 			sourceTree = "<group>";
 		};
 		B5AE83FFF3DB6234BDCBCCB1 /* Frameworks */ = {
@@ -378,7 +365,6 @@
 				0AE3A31B1A3CCEA100FD562D /* main.m in Sources */,
 				5A42CA6F1D3DCA7900ED7411 /* UIImage+Room107.m in Sources */,
 				5A42CA6B1D3DCA7900ED7411 /* UIBarButtonItem+Badge.m in Sources */,
-				5A61ADB21D3E0BC4004B3E8A /* WaverView.m in Sources */,
 				5A42CA701D3DCA7900ED7411 /* UINavigationBar+Awesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

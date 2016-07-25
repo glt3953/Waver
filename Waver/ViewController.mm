@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "WaverView.h"
+//#import "WaverView.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CircleProgressView.h"
 #import "KefuMsgClient.h"
@@ -42,25 +42,25 @@ static float percent = 0;
     _kefuClient = [[KefuMsgClient alloc] init];
     _kefuClient.delegate = self;
     _mp3Player = [[KMMp3Player alloc] init];
-    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"traceId":@"1c9a629d-d982-4139-8e43-24f143931d20", @"uid":@564069099110401}, @"pid":@10001};
+    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"traceId":@"1c9a629d-d982-4139-8e43-24f143931d20", @"uid":@564069099110401}, @"pid":@10001, @"newVoice":[NSNumber numberWithBool:NO]};
     _recountTimer = [[KMRecorderTimer alloc] init];
     _recountTimer.delegate = self;
     
     _circleProgressView = [[CircleProgressView alloc] initWithFrame:CGRectMake(100, 50, 100, 100)];
     [self.view addSubview:_circleProgressView];
     
-    CGFloat originX = -100; //将波纹的起始点挪至界面外
-    WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(originX, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds) + 2 * ABS(originX), 100.0)];
-    //定制
-    waverView.numberOfWaves = 4;
-    __block AVAudioRecorder *weakRecorder = self.recorder;
-    waverView.waverLevelCallback = ^(WaverView *waverView) {
-        [weakRecorder updateMeters];
-        //double pow (double base, double exponent);求base的exponent次方值
-        CGFloat normalizedValue = pow(10, [weakRecorder averagePowerForChannel:0] / 40);
-        waverView.level = normalizedValue;
-    };
-    [self.view addSubview:waverView];
+//    CGFloat originX = -100; //将波纹的起始点挪至界面外
+//    WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(originX, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds) + 2 * ABS(originX), 100.0)];
+//    //定制
+//    waverView.numberOfWaves = 4;
+//    __block AVAudioRecorder *weakRecorder = self.recorder;
+//    waverView.waverLevelCallback = ^(WaverView *waverView) {
+//        [weakRecorder updateMeters];
+//        //double pow (double base, double exponent);求base的exponent次方值
+//        CGFloat normalizedValue = pow(10, [weakRecorder averagePowerForChannel:0] / 40);
+//        waverView.level = normalizedValue;
+//    };
+//    [self.view addSubview:waverView];
     // Do any additional setup after loading the view, typically from a nib.
     
     UIButton *startRecButton = [UIButton buttonWithType:UIButtonTypeSystem];
