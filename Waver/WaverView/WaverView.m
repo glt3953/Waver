@@ -166,8 +166,8 @@
         CGFloat normedAmplitude = (1.5f * progress - 0.5f) * self.amplitude;
 //        NSLog(@"progress:%f, self.amplitude:%f, normedAmplitude:%f", progress, self.amplitude, normedAmplitude);
         
-        for (CGFloat x = 0; x < self.waveWidth + self.density; x += self.density) {
-            
+        //x初始值依赖于self.frame.origin.x
+        for (CGFloat x = self.frame.origin.x; x < self.waveWidth + self.density; x += self.density) {
             //Thanks to https://github.com/stefanceriu/SCSiriWaveformView
             // We use a parable to scale the sinus wave, that has its peak in the middle of the view.
             //缩放
@@ -175,7 +175,7 @@
             
             CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + (self.waveHeight * 0.5);
             
-            if (x == 0) {
+            if (x == self.frame.origin.x) {
                 [wavelinePath moveToPoint:CGPointMake(x, y)];
             } else {
                 [wavelinePath addLineToPoint:CGPointMake(x, y)];

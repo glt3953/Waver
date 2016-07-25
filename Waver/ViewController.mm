@@ -49,7 +49,8 @@ static float percent = 0;
     _circleProgressView = [[CircleProgressView alloc] initWithFrame:CGRectMake(100, 50, 100, 100)];
     [self.view addSubview:_circleProgressView];
     
-    WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
+    CGFloat originX = -100; //将波纹的起始点挪至界面外
+    WaverView *waverView = [[WaverView alloc] initWithFrame:CGRectMake(originX, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds) + 2 * ABS(originX), 100.0)];
     //定制
     waverView.numberOfWaves = 4;
     __block AVAudioRecorder *weakRecorder = self.recorder;
