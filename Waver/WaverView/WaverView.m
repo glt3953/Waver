@@ -176,10 +176,19 @@
             CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + (self.waveHeight * 0.5);
             
             if (x == self.frame.origin.x) {
+                /**
+                 *  设置第一个起始点到接收器
+                 *  @param point 起点坐标
+                 */
                 [wavelinePath moveToPoint:CGPointMake(x, y)];
             } else {
+                /**
+                 *  附加一条直线到接收器的路径
+                 *  @param point 要到达的坐标
+                 */
                 [wavelinePath addLineToPoint:CGPointMake(x, y)];
             }
+//            [wavelinePath strokeWithBlendMode:kCGBlendModeNormal alpha:0.5];
         }
         
         CAShapeLayer *waveline = [self.waves objectAtIndex:i];
