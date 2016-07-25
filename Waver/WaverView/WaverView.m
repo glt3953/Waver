@@ -112,6 +112,24 @@
 //        waveline.strokeColor = color.CGColor;
         [self.layer addSublayer:waveline];
         [self.waves addObject:waveline];
+        
+//        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+//        gradientLayer.frame = self.frame;
+//                    gradientLayer.colors = @[(__bridge id)[[UIColor colorFromHexString:@"#fcc080"] CGColor], (__bridge id)[[UIColor colorFromHexString:@"#ffb8b6" alpha:0.4] CGColor]];
+//        //定时改变颜色
+//        gradientLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor,
+//                                 (__bridge id)[UIColor colorWithRed:arc4random() % 255 / 255.0
+//                                                              green:arc4random() % 255 / 255.0
+//                                                               blue:arc4random() % 255 / 255.0
+//                                                              alpha:1.0].CGColor];
+//        gradientLayer.startPoint = CGPointMake(0, 0.5);
+//        gradientLayer.endPoint = CGPointMake(1, 0.5);
+//        //定时改变分割点
+//        gradientLayer.locations = @[@(arc4random() % 10 / 10.0f), @(1.0f)];
+//        [self.layer addSublayer:gradientLayer];
+//        //Using arc as a mask instead of adding it as a sublayer.
+//        //[self.view.layer addSublayer:arc];
+//        gradientLayer.mask = waveline;
     }
     
 //    for (int i = 0; i < self.numberOfWaves; i++) {
@@ -165,14 +183,16 @@
         CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
         CGFloat normedAmplitude = (1.5f * progress - 0.5f) * self.amplitude;
 //        NSLog(@"progress:%f, self.amplitude:%f, normedAmplitude:%f", progress, self.amplitude, normedAmplitude);
+        CAShapeLayer *waveline = [self.waves objectAtIndex:i];
         
         //x初始值依赖于self.frame.origin.x
         for (CGFloat x = self.frame.origin.x; x < self.waveWidth + self.density; x += self.density) {
             //Thanks to https://github.com/stefanceriu/SCSiriWaveformView
             // We use a parable to scale the sinus wave, that has its peak in the middle of the view.
             //缩放
+            //double pow (double base, double exponent);求base的exponent次方值
             CGFloat scaling = -pow(x / self.waveMid  - 1, 2) + 1; // make center bigger
-            
+            //sinf：计算正弦值和双曲线的正弦值
             CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + (self.waveHeight * 0.5);
             
             if (x == self.frame.origin.x) {
@@ -189,9 +209,18 @@
                 [wavelinePath addLineToPoint:CGPointMake(x, y)];
             }
 //            [wavelinePath strokeWithBlendMode:kCGBlendModeNormal alpha:0.5];
+//            if (i % 2 == 0) {
+//                waveline.strokeColor = [[UIColor colorFromHexString:@"#fcc080" alpha:x / self.waveWidth] CGColor];
+//            } else {
+//                waveline.strokeColor = [[UIColor colorFromHexString:@"#ffb8b6" alpha:x / self.waveWidth] CGColor];
+//            }
+            
+//            if (x >= 0) {
+//                waveline.opacity = x / self.waveWidth;
+//            }
+//            NSLog(@"alpha:%f", x / self.waveWidth);
         }
         
-        CAShapeLayer *waveline = [self.waves objectAtIndex:i];
         waveline.path = [wavelinePath CGPath];
     }
     
