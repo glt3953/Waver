@@ -42,7 +42,7 @@ static float percent = 0;
     _kefuClient = [[KefuMsgClient alloc] init];
     _kefuClient.delegate = self;
     _mp3Player = [[KMMp3Player alloc] init];
-    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"traceId":@"1c9a629d-d982-4139-8e43-24f143931d20", @"uid":@564069099110401}, @"pid":@10001, @"newVoice":[NSNumber numberWithBool:NO]};
+    _userInfoDic = @{@"chatInfo":@{@"businessType":@1, @"cell":@18800000004, @"cityId":@1, @"message":@"", @"mid":@"462d7806-3295-4355-a719-1c4a71e0bf7b", @"msgType":@0, @"orderId":@0, @"roleType":@3, @"skillType":@"common", @"source":@-1, @"traceId":@"1c9a629d-d982-4139-8e43-24f143931d20", @"uid":@564069099110401}, @"pid":@10001, @"newVoice":@1};
     _recountTimer = [[KMRecorderTimer alloc] init];
     _recountTimer.delegate = self;
     
