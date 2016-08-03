@@ -493,7 +493,7 @@
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = Waver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.WaverDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaojukeji.Waver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -508,7 +508,7 @@
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = Waver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.WaverDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaojukeji.Waver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

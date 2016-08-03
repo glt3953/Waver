@@ -68,77 +68,67 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 Demo使用时需要将DDASRClientResources文件夹拷贝至项目所在目录，添加至工程时打开Options只勾选Create folder reference，这样Demo运行时的App包里就会包含DDASRClientResources文件夹；
 
 12.语音识别尾点检测
+百度Android在线语音识别SDK使用方法  http://blog.csdn.net/voicefans/article/details/27345137
 语音活动检测(Voice Activity Detection,VAD)又称语音端点检测,语音边界检测。
-DDWORD lVADResultStartLoc = 0;          /**< @brief VAD Result Start Loc (Frame) */
-DDWORD lVADResultCurLoc = 0;            /**< @brief VAD Result Current Loc (Frame) */
-DDWORD lFrameCnt = 0;                   /**< @brief Frame Counter (Last time) */
-DDWORD lFrameCntTotal = 0;              /**< @brief For SpeechMode = 1, Total Frame Cnt */
-short nIn_Speech_Threshold  = 8;
-#define     VAD_FRAMELENGTH             128
+#define     PARAM_MAX_SP_DURATION       2  //控制每句之间说话的最大静音时间，单位毫秒
+#define     PARAM_SPEECH_END            9  //端点检测超时，单位毫秒
+[[DIDIVREncoder sharedInstance] setParameter: PARAM_MAX_SP_DURATION withValue: 2000];
+    [[DIDIVREncoder sharedInstance]setParameter:PARAM_SPEECH_END withValue:35];
+// DIDIVoiceRecognitionClientResources/Tone
+// DDASRClientResources/Tone
+static NSString *kRecordTonePath = @"DDASRClientResources/Tone/";
 
-DWORD nSampleRate = 8000;
-mSampleRate = inSampleRate;
-nIn_Speech_Threshold = 8;
-short nIn_Speech_Threshold  = 8;
-#define BDVR_PCM_SAMPLE_RATE_16K 64000 //用于检测用户未说话的超时时间 16000（8S）64000（2S）
+/var/containers/Bundle/Application/E950D322-76C8-404D-8B10-6A3F3F1261DA/DiSpecialDriver.app/DDASRClientResources/Tone/record_start.caf
+/var/mobile/Containers/Data/Application/142E3545-B101-4107-A832-E24C707ED962/Documents/RecordVoice/2016_07_29_17_47_37.mp3
 
-#import "DIDIVREncoder.h"
-DIDIVRClientImp
-if(self.isCalledRecordEndOperation == NO && self.isUserEnd == NO) // 每次完成只能响应一次
-		{
-			NSTimeInterval duration = [[NSDate date] timeIntervalSince1970] - self.recordStartTime;
-			self.recordLengthSinceUserEnd = (int)(duration * iCurrentSampleRate * 2);
-			DIDIVRLogDebug(@"finish record real %f, %ld", duration, (long)self.recordLengthSinceUserEnd);
-			self.isUserEnd = YES;
-            [self currentTimeRecognitionStatusNotifyObsWithStatus:EVoiceRecognitionClientWorkStatusEnd];
-			self.isCalledRecordEndOperation = YES;
-			[self startPlayHintAudioWithIsEnd:YES];
-            [_dBLevelMeterListener stopListenDBLevelMeter];
-		}
-@property (readwrite) NSInteger recordLengthSinceUserEnd;
-@property (readwrite) NSInteger currentRecordLength;
-@property (nonatomic) NSTimeInterval max_wait_speech_duration;
-@property (nonatomic) BOOL isNeedVad;
-// 首先设置vad库类型，vad标志和压缩标志
-    [DIDIVREncoder sharedInstance].detectFlag = self.isNeedVad;
-    [DIDIVREncoder sharedInstance].compressFlag = self.isNeedCompress;
-else if (detectStatus == RET_NO_SPEECH)                                     //没有说话
-        {
-            self.mfeResult = EVoiceRecognitionClientErrorStatusNoSpeech;
-            break;
-        }
-// 避免提示音对VAD的干扰
-            if ((iPlayToneFlag & EVoiceRecognitionPlayTonesRecStart) == 0) {
-                [[DIDIVREncoder sharedInstance] setParameter: PARAM_OFFSET withValue: 0];
-            } else {
-                [[DIDIVREncoder sharedInstance] setParameter: PARAM_OFFSET withValue: 8];
-            }
-nIn_Speech_Threshold = 8;
-
-Android：public static final String EXTRA_VAD_MAX_SPEECH_END_SILENCE_LENGTH = "vad_max_speech_end_silence_length"; vad.param_9 这个参数是修改客户端VAD参数的
-#define MAX_SEND_PACKETS_FOR_MUSIC_RECOG 9
-EVoiceRecognitionClientErrorStatusNoSpeech、RET_NO_SPEECH
-DWORD nSleep_Timeout_Init = 18;     /**< @brief Max Speech Length: 18s */
-DWORD nMin_Speech_Duration_Init = 5;
-#ifdef SILENCE_DETECTOR_TIME_DOMAIN	// No	
-	CheckSilence();
-#else
-	m_sPos = nRecFrameS;
-	m_ePos = m_frameNum - 1;
-#endif
-
-13.
-http://qbview.url.cn/getResourceInfo?appid=31&url=http%3A%2F%2F123.125.253.3%2Fstatic%2Fvoiceindex.html%3Flat%3D..%26lng%3D..%26ticket%3D%26nsukey%3DpmVltEQbqhOPme75nVvAcOTX6XAD2kkwRi3c6G0wpm0ik4sFccD9obmIAZ6AzaMg%252Flp2F64IVy4DAYLIdA6%252BNg%253D%253D&version=10000&doview=1&ua=Mozilla%2F5.0+(Macintosh%3B+Intel+Mac+OS+X+10_11_6)+AppleWebKit%2F601.7.7+(KHTML%2C+like+Gecko)+Version%2F9.1.2+Safari%2F601.7.7&keeplink=0&reformat=0&source=app_zcsj_voiceIndex
-
-{
-    lat = "40.04373779296875";
-    lng = "116.2890641276042";
-    ticket = "OoL8rzjeBOsx-nxOcHUDIBK0DspA-dRGLvYD2pWt4vdMzDEOgzAMheG7vNmDrTpu7NukagtMIDIwRLk7kbLwtvcPX0NBAIQPIpmyObuLsLIQvgh9vwg_RMNRar32czRR8-Rm5p3wf_xMWIYmOfOcDnid_obgfgcAAP__";
+收到的结果：{
+    "asr_param" =     {
+        "err_no" = "-3003";
+        error = "get result error";
+        idx = 1;
+        sid = "2742AADC-AED6-42D5-AAD2-D8D13551AEB2";
+    };
 }
 
-http://help.xiaojukeji.com/static/index.html?&ticket=OoL8rzjeBOsx-nxOcHUDIBK0DspA-dRGLvYD2pWt4vdMzDEOgzAMheG7vNmDrTpu7NukagtMIDIwRLk7kbLwtvcPX0NBAIQPIpmyObuLsLIQvgh9vwg_RMNRar32czRR8-Rm5p3wf_xMWIYmOfOcDnid_obgfgcAAP__&lat=40.04374701605903&lng=116.2890687391493&__randNum=907758931
+13.libDDVoiceRecognitionClient.a替换为Debug版，Release版运行异常。 
+Thread 4:signal SIGABRT 
+Stack buffer overflow detected
 
-http://123.125.253.3/static/voiceindex.html?&ticket=OoL8rzjeBOsx-nxOcHUDIBK0DspA-dRGLvYD2pWt4vdMzDEOgzAMheG7vNmDrTpu7NukagtMIDIwRLk7kbLwtvcPX0NBAIQPIpmyObuLsLIQvgh9vwg_RMNRar32czRR8-Rm5p3wf_xMWIYmOfOcDnid_obgfgcAAP__&lat=40.04374701605903&lng=116.2890687391493&__randNum=907758931
-
+static void gen_key(int num, char key[]){
+    if (num < 8 || key == NULL) {
+        return;
+    }
+    if (num != 8) {
+        num = 8;
+    }
+    
+    char magic[] = "*Xj->aSr";
+    
+    memset(key, 127, num);
+    
+    for (int i = 0; i < num; ++i) {
+        
+        key[i] = abs((key[i] * magic[i]))%95 + 32;
+    }
+    return;
+}
 http://123.125.253.3/static/login.html
-http://123.125.253.3/static/voiceChat.html
+
+Today we’re announcing our intention to merge Uber China with Didi Chuxing.
+
+
+NSBundle *bundle = [NSBundle mainBundle];
+    NSString* path = [bundle pathForResource:fileName ofType:KRecordToneFileEx inDirectory:kRecordTonePath];
+    NSURL *musicUrl = [[NSURL alloc] initFileURLWithPath:path];
+/var/containers/Bundle/Application/54EF45B0-7E31-4134-81C1-04B92A67BF79/DiSpecialDriver.app/DDASRClientResources/Tone/fristVoice.mp3
+path:/var/containers/Bundle/Application/54EF45B0-7E31-4134-81C1-04B92A67BF79/DiSpecialDriver.app/DDASRClientResources/Tone/record_start.caf
+
+14.测试地址
+NSURL *url = [NSURL URLWithString:item.url];
+//    NSURL *url = [NSURL URLWithString:@"http://123.125.253.3/static/login.html"]; //测试H5
+2016-08-01 21:09:12.693 DiSpecialDriversDemo[358:40572] App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
+
+15.正常结束  [[DIDIVoiceRecognitionClient sharedInstance] speakFinish];
+取消 [[DIDIVoiceRecognitionClient sharedInstance] stopVoiceRecognition];
+EVoiceRecognitionClientWorkStatusStart,                  // 检测到用户开始说话
+晚于EVoiceRecognitionClientWorkStatusNewRecordData,          // 录音数据回调
