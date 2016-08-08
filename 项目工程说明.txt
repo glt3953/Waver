@@ -31,6 +31,7 @@
 合并模拟器与真机的.a库，命令：
 lipo -create XXX/iphoneos/XXX.a XXX/iphonesimulator/XXX.a  -output XXX/iOS/XXX.a
 其中XXX/iphoneos/XXX.a为真机库，XXX/iphonesimulator/XXX.a为模拟器库，-output XXX/iOS/XXX.a为两个库合并后存放的路径
+lipo -create Release-iphoneos/libDIDIKeFuClient.a Release-iphonesimulator/libDIDIKeFuClient.a -output Release-iOS/libDIDIKeFuClient.a
 
 7.在Demo项目里增加Podfile文件，集成ISCProject库，内容如下：
 使用仓库的某个tag:
