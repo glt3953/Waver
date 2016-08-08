@@ -32,6 +32,10 @@
 lipo -create XXX/iphoneos/XXX.a XXX/iphonesimulator/XXX.a  -output XXX/iOS/XXX.a
 其中XXX/iphoneos/XXX.a为真机库，XXX/iphonesimulator/XXX.a为模拟器库，-output XXX/iOS/XXX.a为两个库合并后存放的路径
 lipo -create Release-iphoneos/libDIDIKeFuClient.a Release-iphonesimulator/libDIDIKeFuClient.a -output Release-iOS/libDIDIKeFuClient.a
+/Users/guoliting/Library/Developer/Xcode/DerivedData/DDASRClientSample-dgsitlqlrfjkyrcxejallpopihli/Build/Products
+lipo -create Release-iphoneos/libDDVoiceRecognitionClient.a Release-iphonesimulator/libDDVoiceRecognitionClient.a -output Release-iOS/libDDVoiceRecognitionClient.a
+
+@文彬 @Snow❄ @郑普亨 @Chelsea  @娟 儿💃 💎  https://www.pgyer.com/AutomaticSpeechRec 最新版已发布，需要测试的同学手动更新下，SDK体积缩减，功能没影响。
 
 7.在Demo项目里增加Podfile文件，集成ISCProject库，内容如下：
 使用仓库的某个tag:
