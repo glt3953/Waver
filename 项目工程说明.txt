@@ -31,6 +31,7 @@
 合并模拟器与真机的.a库，命令：
 lipo -create XXX/iphoneos/XXX.a XXX/iphonesimulator/XXX.a  -output XXX/iOS/XXX.a
 其中XXX/iphoneos/XXX.a为真机库，XXX/iphonesimulator/XXX.a为模拟器库，-output XXX/iOS/XXX.a为两个库合并后存放的路径
+/Users/guoliting/Library/Developer/Xcode/DerivedData/DIDIKeFuClient-ftmkneqfxgutfvaxyewetiblycoc/Build/Products
 lipo -create Release-iphoneos/libDIDIKeFuClient.a Release-iphonesimulator/libDIDIKeFuClient.a -output Release-iOS/libDIDIKeFuClient.a
 /Users/guoliting/Library/Developer/Xcode/DerivedData/DDASRClientSample-dgsitlqlrfjkyrcxejallpopihli/Build/Products
 lipo -create Release-iphoneos/libDDVoiceRecognitionClient.a Release-iphonesimulator/libDDVoiceRecognitionClient.a -output Release-iOS/libDDVoiceRecognitionClient.a
@@ -137,3 +138,18 @@ NSURL *url = [NSURL URLWithString:item.url];
 取消 [[DIDIVoiceRecognitionClient sharedInstance] stopVoiceRecognition];
 EVoiceRecognitionClientWorkStatusStart,                  // 检测到用户开始说话
 晚于EVoiceRecognitionClientWorkStatusNewRecordData,          // 录音数据回调
+
+16.路测技术点：
+1）有VAD的识别情况，耗时多久？  
+收音机里人声不易判断，大概都在10秒以上
+噪音正常识别1-2秒
+音乐播放会被判断为噪音，可以识别
+2）无VAD的识别情况，耗时多久？
+3）噪音情况下是否丢字，识别准确度，识别时长，网络稳定情况？
+会有文字识别错误，3G下识别速度正常
+
+
+4、4g网络，录音结束后，波纹变为一条直线，页面点击无任何反应  ios
+5、4g网络 语音结束后，没有识别结果 说3条语音信息丢2条  ios
+
+@文彬 @Snow❄ @郑普亨 @Chelsea  @娟 儿💃 💎  https://www.pgyer.com/AutomaticSpeechRec 最新版已发布，需要测试的同学手动更新下。
