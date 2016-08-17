@@ -35,6 +35,8 @@ lipo -create XXX/iphoneos/XXX.a XXX/iphonesimulator/XXX.a  -output XXX/iOS/XXX.a
 lipo -create Release-iphoneos/libDIDIKeFuClient.a Release-iphonesimulator/libDIDIKeFuClient.a -output Release-iOS/libDIDIKeFuClient.a
 /Users/guoliting/Library/Developer/Xcode/DerivedData/DDASRClientSample-dgsitlqlrfjkyrcxejallpopihli/Build/Products
 lipo -create Release-iphoneos/libDDVoiceRecognitionClient.a Release-iphonesimulator/libDDVoiceRecognitionClient.a -output Release-iOS/libDDVoiceRecognitionClient.a
+/Users/guoliting/Library/Developer/Xcode/DerivedData/SpeechSynthesizer-bmmghtjsummbczcfdoblgggyqtfn/Build/Products
+lipo -create Release-iphoneos/libSpeechSynthesizer.a Release-iphonesimulator/libSpeechSynthesizer.a -output Release-iOS/libSpeechSynthesizer.a
 
 @文彬 @Snow❄ @郑普亨 @Chelsea  @娟 儿💃 💎  https://www.pgyer.com/AutomaticSpeechRec 最新版已发布，需要测试的同学手动更新下，SDK体积缩减，功能没影响。
 
@@ -148,8 +150,39 @@ EVoiceRecognitionClientWorkStatusStart,                  // 检测到用户开�
 3）噪音情况下是否丢字，识别准确度，识别时长，网络稳定情况？
 会有文字识别错误，3G下识别速度正常
 
-
+1、4g网络 ：电话进入后挂掉，点击语音按钮总是提示网络异常  ios
+2、电话进入未做处理，未把录制的语音结果识别出来  ios
 4、4g网络，录音结束后，波纹变为一条直线，页面点击无任何反应  ios
 5、4g网络 语音结束后，没有识别结果 说3条语音信息丢2条  ios
 
+Podfile中修改
+pod 'DComponent_Web', :git => "git@git.xiaojukeji.com:DriveriOS/DComponent_Web.git", :tag => '0.1.1'
+pod 'ISCProject', :git => "git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git", :branch => 'develop'
+#pod 'ISCProject', :git => "git@git.xiaojukeji.com:zhangkaiming/ISCForOneProject.git", :tag => “0.3.0”
+
+MoreViewController.m中
+//    NSURL *url = [NSURL URLWithString:item.url];
+    NSURL *url = [NSURL URLWithString:@"http://123.125.253.3/static/login.html"]; //测试H5
+//    NSURL *url = [NSURL URLWithString:@"http://123.125.253.3/static/voiceindex.html"]; //测试H5
+
 @文彬 @Snow❄ @郑普亨 @Chelsea  @娟 儿💃 💎  https://www.pgyer.com/AutomaticSpeechRec 最新版已发布，需要测试的同学手动更新下。
+
+https://git.xiaojukeji.com/DriveriOS/DComponent_Web
+这个是之前依赖我们组建，我拆出来了，以后你们可以依赖这个组件新建一个pod开发，以后发版就再也不依赖我们替换文件了
+
+我把pod 'DComponent_Web', :git => "git@git.xiaojukeji.com:DriveriOS/DComponent_Web.git", :tag => '0.1.1'加到司机端的Podfile里，然后手动移除KFOnlineWebViewController类与DSWeb文件夹，这样设置就行了吧？
+
+
+Undefined symbols for architecture i386:
+  "_DSWebSetWebViewDidLoadCallBack", referenced from:
+      -[JSBridgeInitTask run] in JSBridgeInitTask.o
+
+
+离线语音合成测试的功能点：
+1.离线合成引擎是否正常工作；
+2.设置音量是否有效；
+3.设置语速是否有效；
+4.包名合法性校验是否有效；
+
+合法的包名集合
+_bundleIDs = @[@"com.xiaojukeji.DiSpecialDrivers", @"com.sdu.didi.gsui", @"com.xiaojukeji.SpecialDrivers", @"com.xiaojukeji.didi", @"com.didi.passengers", @"com.sdu.didi.psnger", @"com.xiaojukeji.DDTTSDemo"];
